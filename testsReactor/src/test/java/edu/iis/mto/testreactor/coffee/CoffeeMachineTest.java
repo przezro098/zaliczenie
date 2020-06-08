@@ -16,13 +16,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class) public class CoffeeMachineTest {
 
-    @Mock private Grinder grinder;
+    @Mock private MockGrinder grinder;
     @Mock private MilkProvider milkProvider;
     @Mock private CoffeeReceipes receipes;
 
     private CoffeeMachine coffeeMachine;
 
     @BeforeEach void init() {
+        grinder = new MockGrinder();
         coffeeMachine = new CoffeeMachine(grinder, milkProvider, receipes);
     }
 
