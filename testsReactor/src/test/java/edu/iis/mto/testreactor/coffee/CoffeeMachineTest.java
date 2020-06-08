@@ -44,6 +44,19 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
     }
 
+    @Test void StandardEspressoCoffeShouldCallGrinder() {
+
+        CoffeeSize standard = CoffeeSize.STANDARD;
+        CoffeType espresso = CoffeType.ESPRESSO;
+
+        CoffeOrder coffeOrder = CoffeOrder.builder().withSize(standard).withType(espresso).build();
+
+        Coffee result = coffeeMachine.make(coffeOrder);
+
+        Mockito.verify(grinder).canGrindFor(standard);
+        Mockito.verify(grinder).canGrindFor(standard);
+
+    }
 
     @Test public void itCompiles() {
         assertThat(true, Matchers.equalTo(true));
