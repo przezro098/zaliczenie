@@ -18,12 +18,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
     @Mock private MockGrinder grinder;
     @Mock private MilkProvider milkProvider;
-    @Mock private CoffeeReceipes receipes;
+    @Mock private MockCoffeeReceipes receipes;
 
     private CoffeeMachine coffeeMachine;
 
     @BeforeEach void init() {
         grinder = new MockGrinder();
+        receipes = new MockCoffeeReceipes();
         coffeeMachine = new CoffeeMachine(grinder, milkProvider, receipes);
     }
 
